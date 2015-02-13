@@ -64,7 +64,26 @@ module.exports = function(grunt) {
             src: ['**/*.{png,jpg,gif}'],
             dest: 'build/'
         }]
+    },
+    watch: {
+      options: {
+        livereload: true,
+    },
+    scripts: {
+        files: ['src/javascript/*.js'],
+        tasks: ['concat', 'uglify'],
+        options: {
+            spawn: false,
+        },
+    }, 
+    css: {
+    files: ['src/styles/*.scss'],
+    tasks: ['sass'],
+    options: {
+        spawn: false,
     }
+}
+}
 }
   });
 
@@ -79,5 +98,5 @@ module.exports = function(grunt) {
 
   // Custom tasks
   grunt.registerTask('deploy', ['gh-pages']);
-  grunt.registerTask('default', ['concat', 'uglify', 'sass', 'copy', 'processhtml']);
+  grunt.registerTask('default', ['concat', 'uglify', 'sass', 'copy', 'processhtml', 'imagemin']);
 };
