@@ -29,15 +29,6 @@ function ajax(query, data, callback) {
 
 }
 
-Minispot.play = function() {
-	
-	var play_button = document.querySelector(".btn-play");
-
-	play_button.addEventListener("click", function() {
-		document.querySelector("audio").play();
-	});
-}
-
 
 function displayResult(response) {
 	
