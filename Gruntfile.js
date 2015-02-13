@@ -47,7 +47,25 @@ module.exports = function(grunt) {
             base: 'build'
         },
         src: ['**']
+    },
+    concat: {
+      dist: {
+        src: [
+            'src/javascript/*.js'
+        ],
+        dest: 'build/production.js',
+      }
+    },
+    imagemin: {
+    dynamic: {
+        files: [{
+            expand: true,
+            cwd: 'images/',
+            src: ['**/*.{png,jpg,gif}'],
+            dest: 'build/'
+        }]
     }
+}
   });
 
   // Load the plugin tasks
@@ -56,8 +74,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-processhtml');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-gh-pages');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
 
   // Custom tasks
   grunt.registerTask('deploy', ['gh-pages']);
-  grunt.registerTask('default', ['uglify', 'sass', 'copy', 'processhtml']);
+  grunt.registerTask('default', ['concat', 'uglify', 'sass', 'copy', 'processhtml']);
 };

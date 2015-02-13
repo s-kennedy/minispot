@@ -2,6 +2,33 @@
   "name": "minispot",
   "version": "0.1.0",
   "devDependencies": {
-    "grunt": "~0.4.1"
+    "grunt": "~0.4.5",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-sass": "~0.9.2",
+    "grunt-contrib-imagemin": "~0.9.3",
+    "grunt-contrib-watch": "~0.6.1"
+  },
+  "description": "It's going to be AWESOME.",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-copy": "~0.7.0",
+    "grunt-contrib-sass": "~0.9.2",
+    "grunt-contrib-uglify": "~0.7.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-gh-pages": "~0.9.1",
+    "grunt-processhtml": "~0.3.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s-kennedy/minispot.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/s-kennedy/minispot/issues"
   }
 }
