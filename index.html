@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<title>Minispot</title>
+
+  <link rel="stylesheet" href="bootstrap.min.css">
+
+  <link rel="stylesheet" href="main.css">
+
+  <scripst src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+  <script src="main.min.js"></script>
+
+</head>
+<body>
+
+  <script>
+    var Minispot = window.Minispot
+  </script>
+
+	<div class="widget">
+  <div class="header">
+    <div class="btn-play"></div>
+
+    <div class="metadata">
+      <p class="title">Song title</p>
+      <p class="author">Song author</p>
+
+      <div class="seekbar">
+        <progress value="1" max="30"></progress>
+      </div>
+    </div>
+  </div>
+  <div class="cover">
+    <img src="images/default.jpg">
+  </div>
+
+  <div class="search">
+    <input type="text" id="query" />
+    <input type="submit" value="Search" id="search"/>
+  </div>
+
+  <script>
+    Minispot.search();
+    Minispot.play();
+  </script>
+
+  <audio id="audio" src=""></audio>
+</div>
+</body>
+</html>
