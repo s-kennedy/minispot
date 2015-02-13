@@ -1,5 +1,7 @@
 var Minispot = window.Minispot || {};
 
+var response;
+
 Minispot.search = function() {
 
 	var search_button = document.querySelector('#search');
@@ -8,7 +10,7 @@ Minispot.search = function() {
 
 		var query = document.querySelector('#query').value;
 		var data = ""
-		ajax(query, data, play);
+		ajax(query, data, displayResult);
 		
 	});
 }
@@ -21,12 +23,38 @@ function ajax(query, data, callback) {
 	req.open("GET", url);  
 	req.send(data); 
 	req.onload = function(event) {
-	  var response = JSON.parse(event.target.response);
-	  console.log(response);
+	  response = JSON.parse(event.target.response);
+	  callback(response);
 	};
 
 }
 
-function play() {
-	conosle.log("play baby play");
+Minispot.play = function() {
+	
+	var play_button = document.querySelector(".btn-play");
+
+	play_button.addEventListener("click", function() {
+		document.querySelector("audio").play();
+	});
+}
+
+// function play() {
+	
+// 	var songUri = response.tracks.items[0].uri
+// 	var songId = response.tracks.items[0].id
+
+// 	console.log(response);
+// }
+
+function displayResult(response) {
+	
+	var song = response.tracks.items[0].name
+	var artist = response.tracks.items[0].artists[0].name
+	var image = response.tracks.items[0].album.images[0].url
+	var preview = response.tracks.items[0].preview_url
+
+	document.querySelector(".title").innerHTML = song;
+	document.querySelector(".author").innerHTML = artist;
+	document.querySelector(".cover img").src = image;
+	document.querySelector("audio").src = preview;
 }
