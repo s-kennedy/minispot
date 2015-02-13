@@ -18,7 +18,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         files: {
-         'build/main.css':'src/styles/main.scss'
+         'build/main.css':'src/styles/main.css'
         }
       }
     },
@@ -57,34 +57,34 @@ module.exports = function(grunt) {
       }
     },
     imagemin: {
-    dynamic: {
-        files: [{
-            expand: true,
-            cwd: 'images/',
-            src: ['**/*.{png,jpg,gif}'],
-            dest: 'build/'
-        }]
+      dynamic: {
+          files: [{
+              expand: true,
+              cwd: 'src/images/',
+              src: ['**/*.{png,jpg,gif}'],
+              dest: 'build/images/'
+          }]
+      }
     },
     watch: {
       options: {
         livereload: true,
-    },
-    scripts: {
-        files: ['src/javascript/*.js'],
-        tasks: ['concat', 'uglify'],
+      },
+      scripts: {
+          files: ['src/javascript/*.js'],
+          tasks: ['concat', 'uglify'],
+          options: {
+              spawn: false,
+          },
+      }, 
+      css: {
+        files: ['src/styles/*.scss'],
+        tasks: ['sass'],
         options: {
             spawn: false,
-        },
-    }, 
-    css: {
-    files: ['src/styles/*.scss'],
-    tasks: ['sass'],
-    options: {
-        spawn: false,
+        }
+      }
     }
-}
-}
-}
   });
 
   // Load the plugin tasks

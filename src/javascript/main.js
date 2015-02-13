@@ -38,13 +38,6 @@ Minispot.play = function() {
 	});
 }
 
-// function play() {
-	
-// 	var songUri = response.tracks.items[0].uri
-// 	var songId = response.tracks.items[0].id
-
-// 	console.log(response);
-// }
 
 function displayResult(response) {
 	
